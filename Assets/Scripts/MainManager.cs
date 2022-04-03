@@ -21,15 +21,15 @@ public class MainManager : MonoBehaviour
     
     private bool m_GameOver = false;
 
-    // [System.Serializable]
-    // public class SaveData
-    // {
-    //     public int score;
-    // }
-    
     // Start is called before the first frame update
     void Start()
     {
+        // retrieve the high score data from the score manager
+        m_HighScore = ScoreManager.Instance.HighScore;
+        m_Name = ScoreManager.Instance.Name;
+        // display the high score
+        HighScoreText.text = $"Best Score : {m_HighScore} Name: {m_Name}"; 
+        
         const float step = 0.6f;
         int perLine = Mathf.FloorToInt(4.0f / step);
         
@@ -79,7 +79,7 @@ public class MainManager : MonoBehaviour
         if(m_Points > m_HighScore)
         {
             m_HighScore = m_Points;
-            HighScoreText.text = $"Best Score : {m_HighScore} Name: {m_Name}";
+            HighScoreText.text = $"Best Score : {m_HighScore} Name: {m_Name}";            
         }
     }
 
@@ -87,13 +87,11 @@ public class MainManager : MonoBehaviour
     {
         m_GameOver = true;
         GameOverText.SetActive(true);
+        if(m_HighScore > ScoreManager.Instance.HighScore)
+        {
+            ScoreManager.Instance.HighScore = m_HighScore;            
+        }
+        ScoreManager.Instance.SaveData();
     }
-
-    // public void SaveData()
-    // {
-    //     SaveData data = new SaveData();
-    //     data.score = m_HighScore;
-
-
-    // }
+    
 }
