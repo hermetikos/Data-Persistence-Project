@@ -28,7 +28,7 @@ public class MainManager : MonoBehaviour
         m_HighScore = ScoreManager.Instance.HighScore;
         m_Name = ScoreManager.Instance.Name;
         // display the high score
-        HighScoreText.text = $"Best Score : {m_HighScore} Name: {m_Name}"; 
+        HighScoreText.text = $"Best Score : {m_HighScore} Name : {m_Name}"; 
         
         const float step = 0.6f;
         int perLine = Mathf.FloorToInt(4.0f / step);

@@ -37,6 +37,7 @@ public class ScoreManager : MonoBehaviour
     public void LoadData()
     {
         string path = Application.persistentDataPath + "/savefile.json";
+        Debug.Log("Save path: " + path);
         if (File.Exists(path))
         {
             string json = File.ReadAllText(path);
