@@ -33,12 +33,6 @@ public class ScoreManager : MonoBehaviour
         // LOAD SAVE DATA
         LoadData();
     }
-
-    // // Update is called once per frame
-    // void Update()
-    // {
-        
-    // }
     
     public void LoadData()
     {
@@ -59,6 +53,7 @@ public class ScoreManager : MonoBehaviour
     public void SaveData()
     {
         SaveDataStruct data = new SaveDataStruct();
+        
         data.score = HighScore;
         data.name = Name;
 

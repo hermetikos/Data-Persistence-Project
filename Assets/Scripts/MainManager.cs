@@ -89,9 +89,9 @@ public class MainManager : MonoBehaviour
         GameOverText.SetActive(true);
         if(m_HighScore > ScoreManager.Instance.HighScore)
         {
-            ScoreManager.Instance.HighScore = m_HighScore;            
-        }
-        ScoreManager.Instance.SaveData();
-    }
-    
+            ScoreManager.Instance.HighScore = m_HighScore;
+            ScoreManager.Instance.Name = m_Name;
+            ScoreManager.Instance.SaveData();
+        }        
+    }    
 }
